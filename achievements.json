@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Anna University - Degree Certificate",
+        "description": "Successfully completed Bachelor of Engineering from Anna University, demonstrating proficiency in core engineering principles and technical expertise.",
+        "image": "achieve/annauniversit.jpeg",
+        "certificate_url": "achieve/annauniversit.jpeg"
+    },
+    {
+        "title": "Anna University - Academic Achievement",
+        "description": "Recognized for consistent academic performance and participation in university-level technical symposiums and workshops.",
+        "image": "achieve/annauniversit1.jpeg",
+        "certificate_url": "achieve/annauniversit1.jpeg"
+    },
+    {
+        "title": "Full Stack Bootcamp",
+        "description": "Successfully completed an intensive bootcamp covering modern web technologies and full-stack development practices.",
+        "image": "achieve/bootcamp_cert.png",
+        "certificate_url": "achieve/bootcamp.pdf"
+    },
+    {
+        "title": "GrowUp Career Skill Gap Analyzer Participation",
+        "description": "Participated in the GSA program, focusing on identifying and bridging career skill gaps through technical analysis and roadmap development.",
+        "image": "achieve/gsa_cert.png",
+        "certificate_url": "achieve/GSA_Participation_Certificate-103.pdf"
+    },
+    {
+        "title": "Tech Innova’26 – Web Development Expo",
+        "description": "Presented web development project and gained real-world project exposure.",
+        "image": "achieve/ig.jpg",
+        "certificate_url": "achieve/ig.pdf"
+    },
+    {
+        "title": "SCIMIT’26 – Project Expo",
+        "description": "Participated in National Science Day project expo showcasing innovative ideas.",
+        "image": "achieve/pondi.jpg",
+        "certificate_url": "achieve/pondi.pdf"
+    },
+    {
+        "title": "Vibe X 1.0 Hackathon – 2nd Prize Winner",
+        "description": "Secured 2nd place demonstrating strong coding, teamwork, and problem-solving skills.",
+        "image": "achieve/vibex.jpg",
+        "certificate_url": "achieve/vibex.pdf"
+    },
+    {
+        "title": "AI Animation Workshop",
+        "description": "Completed a hands-on workshop in AI animation, gaining exposure to creative design and emerging technologies.",
+        "image": "achieve/green.jpg",
+        "certificate_url": "achieve/green.jpeg"
+    },
+    {
+        "title": "GDG Solution Challenge",
+        "description": "Participated in Google Developer Groups Solution Challenge, focusing on innovation and real-world problem solving.",
+        "image": "achieve/solution.jpg",
+        "certificate_url": "achieve/solution.jpeg"
+    },
+    {
+        "title": "KITE Odyssey 3.0",
+        "description": "Participated in a tech and cultural festival, showcasing creativity, innovation, and active involvement in technical events.",
+        "image": "achieve/kite.jpg",
+        "certificate_url": "achieve/kite.pdf"
+    }
+]

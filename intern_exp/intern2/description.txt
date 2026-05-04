@@ -1,0 +1,5 @@
+Backend Engineering Intern – INFYREC
+
+Completed a 15-day internship in Backend Engineering, gaining hands-on experience in setting up Linux environments by installing Ubuntu and working with core system configurations.
+ Practiced essential Linux command-line operations such as file management, navigation, and system monitoring. 
+Also learned frontend basics using Tailwind CSS and understood the integration between frontend and backend systems. Developed practical exposure to development workflows, environment setup, and real-world application structure.

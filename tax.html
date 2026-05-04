@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator System | Vishnu.dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --bg-card: #151515;
+            --primary: #00ff99;
+            --secondary: #00cc77;
+            --text: #e6ffe6;
+            --text-dim: #a0cca0;
+            --glow: 0 0 10px #00ff99, 0 0 20px #00ff9944;
+            --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+            --font-display: 'Orbitron', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-mono); line-height: 1.6; padding-bottom: 60px; }
+
+        /* Navbar Back Button */
+        .nav-back {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 8%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+            z-index: 100;
+        }
+        .nav-back a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-back a:hover { text-shadow: var(--glow); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 120px 20px 0; }
+
+        /* HERO */
+        .hero { text-align: center; margin-bottom: 80px; }
+        .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); color: var(--primary); text-shadow: var(--glow); margin-bottom: 10px; }
+        .tagline { font-size: 1.2rem; color: var(--secondary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .intro { font-size: 1rem; color: var(--text-dim); max-width: 700px; margin: 0 auto; }
+
+        /* SECTIONS */
+        .section { margin-bottom: 60px; }
+        .section-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid rgba(0, 255, 153, 0.3); padding-bottom: 10px; display: inline-block; text-shadow: 0 0 5px var(--primary); }
+        .section-title::before { content: '>_ '; }
+
+        /* CARDS GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--bg-card); border: 1px solid rgba(0, 255, 153, 0.2); border-left: 3px solid var(--primary); padding: 25px; border-radius: 4px; transition: 0.3s; position: relative; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--primary); box-shadow: var(--glow); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 153, 0.1); border-color: var(--primary); }
+        .card h3 { font-family: var(--font-display); color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; }
+        
+        ul { list-style: none; }
+        ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-dim); }
+        ul li::before { content: '$'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* PROJECT TYPE BADGE */
+        .project-type-badge {
+            background: rgba(0, 255, 153, 0.05);
+            border: 1px dashed var(--primary);
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+            color: var(--text);
+            box-shadow: inset 0 0 20px rgba(0,255,153,0.05);
+        }
+        .project-type-badge strong { color: var(--primary); font-family: var(--font-display); letter-spacing: 1px; font-size: 1.2rem;}
+
+        /* TERMINAL BLOCK */
+        .terminal-wrap {
+            background: #000;
+            border: 1px solid rgba(0, 255, 153, 0.3);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--glow);
+            margin-top: 20px;
+        }
+
+        .terminal-header {
+            background: #111;
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .term-dot.red { background: #ff5f56; }
+        .term-dot.yellow { background: #ffbd2e; }
+        .term-dot.green { background: #27c93f; }
+
+        .term-title {
+            margin-left: 10px;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: var(--font-mono);
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .term-input { color: var(--primary); }
+        .term-highlight { color: #ffbd2e; font-weight: bold; }
+        .term-label { color: #a0cca0; }
+
+        /* PROCESS FLOW */
+        .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .step { background: rgba(0, 255, 153, 0.05); border: 1px dashed var(--secondary); padding: 15px; text-align: center; border-radius: 4px; transition: 0.3s;}
+        .step:hover { background: rgba(0, 255, 153, 0.1); border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-3px);}
+        .step-num { font-size: 1.5rem; color: var(--primary); font-weight: bold; margin-bottom: 5px; font-family: var(--font-display); }
+
+        /* TECH STACK */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tag { background: rgba(0, 255, 153, 0.1); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; color: var(--primary); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="nav-back">
+        <a href="index.html#projects">← Back to Portfolio</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 1. HERO SECTION -->
+        <section class="hero">
+            <h1>TAX CALCULATOR</h1>
+            <p class="tagline">Console-based Java application for accurate tax calculation</p>
+            <p class="intro">A streamlined tool that calculates income tax using dynamic slabs, deductions, and allowances directly in your terminal.</p>
+        </section>
+
+        <!-- 2. PROJECT TYPE -->
+        <div class="project-type-badge">
+            <span style="font-size: 1.5rem; vertical-align: middle; margin-right: 10px;">🔥</span>
+            This is a <strong>CONSOLE-BASED APPLICATION</strong> built using Java, where users interact through terminal input and output instead of a graphical interface.
+        </div>
+
+        <!-- 3. PROBLEM & 4. SOLUTION -->
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>[ ERR_CALC ] The Problem</h3>
+                    <ul>
+                        <li>Tax calculation is complex and highly error-prone</li>
+                        <li>Manual calculations consume too much time</li>
+                        <li>Changing tax rules and slabs are hard to manage</li>
+                        <li>Users often need a simple, fast CLI-based solution</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>[ SYS_CALC ] The Solution</h3>
+                    <ul>
+                        <li>Accepts straightforward user input through the console</li>
+                        <li>Applies dynamic tax slabs automatically</li>
+                        <li>Seamlessly includes standard deductions and allowances</li>
+                        <li>Calculates and displays final tax results instantly in the terminal</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CORE FEATURES -->
+        <section class="section">
+            <h2 class="section-title">Core Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <ul>
+                        <li><strong>Console Interaction:</strong> Fast terminal-based user input/output</li>
+                        <li><strong>Slab-Based Tax:</strong> Automatic bracket calculation</li>
+                        <li><strong>Dynamic Rules:</strong> Admin-configurable tax slabs</li>
+                        <li><strong>Allowances:</strong> Handles HRA, travel, etc.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li><strong>Deductions:</strong> Handles insurance, pension, investments</li>
+                        <li><strong>Net Taxable Income:</strong> Accurate pre-tax computation</li>
+                        <li><strong>JSON Export:</strong> Structured data export format</li>
+                        <li><strong>Input Validation:</strong> Secure error handling for invalid entries</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. HOW IT WORKS -->
+        <section class="section">
+            <h2 class="section-title">Execution Process</h2>
+            <div class="flow-grid">
+                <div class="step"><div class="step-num">01</div><p>Run Program</p></div>
+                <div class="step"><div class="step-num">02</div><p>Enter Income</p></div>
+                <div class="step"><div class="step-num">03</div><p>Input Deductions</p></div>
+                <div class="step"><div class="step-num">04</div><p>Compute Net</p></div>
+                <div class="step"><div class="step-num">05</div><p>Apply Slabs</p></div>
+                <div class="step"><div class="step-num">06</div><p>Display Result</p></div>
+            </div>
+        </section>
+
+        <!-- 7. SAMPLE OUTPUT -->
+        <section class="section">
+            <h2 class="section-title">Sample Console Output</h2>
+            <div class="terminal-wrap">
+                <div class="terminal-header">
+                    <div class="term-dot red"></div>
+                    <div class="term-dot yellow"></div>
+                    <div class="term-dot green"></div>
+                    <div class="term-title">java -jar TaxCalculator.jar</div>
+                </div>
+                <div class="terminal-body">
+<span class="term-label">> Enter Income:</span> <span class="term-input">20000</span>
+<span class="term-label">> Enter Allowance:</span> <span class="term-input">5000</span>
+<span class="term-label">> Enter Deduction:</span> <span class="term-input">3000</span>
+
+<span class="term-highlight">Net Taxable Income: 12000</span>
+
+Tax Breakdown:
+  0–5000       → 0%
+  5001–10000   → 10%
+  Above 10000  → 20%
+
+<span class="term-highlight" style="color: var(--primary);">Final Tax: ₹1400</span><span class="cursor-blink">_</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. TECH STACK & 9. YOUR ROLE & 10. FUTURE -->
+        <section class="section">
+            <div class="grid">
+                <!-- Tech Stack & Future -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card">
+                        <h3>Tech Stack & Environment</h3>
+                        <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Language:</strong> Java</div>
+                        <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Data Handling:</strong> JSON Export</div>
+                        <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Core Concepts:</strong></div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">OOP (Inheritance, Classes)</span>
+                            <span class="tech-tag">Conditional Logic</span>
+                            <span class="tech-tag">File Handling</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Future Improvements</h3>
+                        <ul>
+                            <li>Web-based interface integration</li>
+                            <li>Full Graphical User Interface (GUI) version</li>
+                            <li>Real-time updates to official tax slabs</li>
+                            <li>Comprehensive financial dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- My Role -->
+                <div class="card">
+                    <h3>My Role</h3>
+                    <p style="color: var(--text-dim); margin-bottom: 15px;">
+                        As the primary developer of this tool, I focused on applying robust Object-Oriented principles to solve a complex math-heavy problem.
+                    </p>
+                    <ul>
+                        <li><strong>Core Java Development:</strong> Built the entire application logic using standard Java libraries.</li>
+                        <li><strong>Tax Calculation Logic:</strong> Implemented precise conditional logic for multi-tier tax brackets.</li>
+                        <li><strong>OOP Design:</strong> Structured the system cleanly with modular classes.</li>
+                        <li><strong>Console Interaction:</strong> Designed the terminal UI to handle user inputs, process errors, and display clear textual breakdowns.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

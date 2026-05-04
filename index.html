@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu.dev</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="#" class="logo">Vishnu<span>.dev</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="javascript:void(0)" onclick="triggerExperiencesLoading()">Experiences</a>
+            <a href="javascript:void(0)" onclick="triggerAchievementsLoading()">Achievements</a>
+            <a href="javascript:void(0)" onclick="triggerResumeLoading()">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-text">
+            <p class="hero-eyebrow">Java Backend Developer</p>
+            <h1 class="hero-name">VISHNU</h1>
+            <p class="hero-role">Java Backend Developer <span>&amp;</span> Linux Enthusiast</p>
+            <div class="hero-typing-wrap">
+                <p class="typing-prompt">$ ./run —mission</p>
+                <p id="typing-text"><span class="cursor-blink">_</span></p>
+            </div>
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="javascript:void(0)" onclick="triggerResumeLoading()" class="btn-ghost">View Resume</a>
+                <a href="#contact" class="btn-ghost">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-image-wrap">
+            <div class="hero-image-ring">
+                <div class="hero-avatar-fallback" id="heroAvatar">V</div>
+                <img src="vishnu.png" alt="Vishnu" style="display:none" id="heroImg"
+                    onerror="this.style.display='none'">
+            </div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                AVAILABLE TO WORK
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-header">
+            <p class="section-label">About Me</p>
+            <h2 class="section-title">Hey Guy's!</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text-block" data-animate>
+                <p class="about-identity">Identity: Backend & System Developer</p>
+                <p class="about-body">
+                    Hi, I'm <strong>C.G. Vishnu</strong>, a developer from Paavai Engineering College.
+                    I specialize in <strong>Java backend development</strong>, work comfortably in <strong>Linux
+                        environments</strong>, and have a solid foundation in <strong>HTML & CSS basics</strong>.
+                </p>
+                <p class="about-body">
+                    My core skills include Java, Python basics, DBMS, and Linux command-line operations.
+                    I use AI tools to accelerate development and build real-world projects efficiently.
+                </p>
+                <p class="about-body">
+                    I am a fast learner who quickly understands new systems and adapts to different environments.
+                </p>
+                <div class="about-cta" style="margin-top: 24px; display: flex; gap: 12px;">
+                    <a href="javascript:void(0)" onclick="triggerResumeLoading()" class="btn-primary"
+                        style="padding: 10px 20px; font-size: 0.75rem;">View Resume</a>
+                    <a href="Vishnu_CG_Resume_v2.pdf" download="Vishnu_CG_Resume.pdf" class="btn-ghost"
+                        style="padding: 10px 20px; font-size: 0.75rem;">Download PDF</a>
+                </div>
+            </div>
+            <div class="about-stats" data-animate>
+                <div class="stat-card">
+                    <span class="stat-label">Java Backend</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Linux CLI</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">DBMS</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Problem Solving</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Fast Learner</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">AI Assisted Development</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">HTML & CSS (Basics)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- OBJECTIVE -->
+    <section id="objective">
+        <div class="section-header" data-animate>
+            <p class="section-label">Profile</p>
+            <h2 class="section-title">CAREER OBJECTIVE</h2>
+        </div>
+        <div class="objective-grid">
+            <div class="objective-sidebar" data-animate>
+                <div class="sidebar-title">SYNTAX</div>
+                <div class="syntax-loop-container">
+                    <div class="syntax-loop">
+                        <span>for</span>
+                        <span>while</span>
+                        <span>if</span>
+                        <span>else</span>
+                        <span>elif</span>
+                        <span>try</span>
+                        <span>catch</span>
+                        <span>finally</span>
+                        <span>switch</span>
+                        <span>case</span>
+                        <span>break</span>
+                        <span>continue</span>
+                        <!-- Repeat for seamless loop -->
+                        <span>for</span>
+                        <span>while</span>
+                        <span>if</span>
+                        <span>else</span>
+                        <span>elif</span>
+                        <span>try</span>
+                        <span>catch</span>
+                        <span>finally</span>
+                        <span>switch</span>
+                        <span>case</span>
+                        <span>break</span>
+                        <span>continue</span>
+                    </div>
+                </div>
+            </div>
+            <div class="objective-text">
+                <p class="objective" data-animate>
+                    Aspiring Java backend developer with knowledge in Linux, DBMS, and Python basics.
+                    I am a fast learner who adapts quickly to new environments, works effectively in teams,
+                    communicates clearly, and consistently contributes my best to build efficient systems.
+                </p>
+
+                <p class="objective" data-animate style="margin-top: 10px;"><strong>Languages:</strong> English, Tamil
+                </p>
+            </div>
+            <!-- RIGHT SIDEBAR: JAVA NOTES -->
+            <div class="objective-sidebar right" data-animate>
+                <div class="sidebar-title">NOTES</div>
+                <div class="syntax-loop-container">
+                    <div class="syntax-loop reverse">
+                        <span>for(int i=0; i&lt;5; i++)</span>
+                        <span>while(i &lt; 5)</span>
+                        <span>if(a &gt; b)</span>
+                        <span>else { ... }</span>
+                        <span>try { ... } catch</span>
+                        <span>switch(num) { case }</span>
+                        <span>if(i == 3) break;</span>
+                        <span>if(i == 3) continue;</span>
+                        <!-- Repeat for seamless loop -->
+                        <span>for(int i=0; i&lt;5; i++)</span>
+                        <span>while(i &lt; 5)</span>
+                        <span>if(a &gt; b)</span>
+                        <span>else { ... }</span>
+                        <span>try { ... } catch</span>
+                        <span>switch(num) { case }</span>
+                        <span>if(i == 3) break;</span>
+                        <span>if(i == 3) continue;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-header">
+            <p class="section-label">Work</p>
+            <h2 class="section-title">PROJECTS</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="card" data-animate onclick="triggerGrowUpLoading()" style="cursor: pointer;">
+                <div class="card-icon">📈</div>
+                <span class="card-tag">Grow Up</span>
+                <h3 class="card-title">Career Skill Gap Analyzer</h3>
+                <p class="card-desc">
+                    Analyzes user skills and identifies gaps compared to required skills for target roles.
+                    Generates actionable learning paths, priority rankings, and resource suggestions to
+                    close the gap between where you are and where you want to be.
+                </p>
+                <div class="card-meta">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">Analysis</span>
+                </div>
+            </div>
+            <div class="card" data-animate style="transition-delay: 0.15s; cursor: pointer;"
+                onclick="triggerDatapulseLoading()">
+                <div class="card-icon">🔍</div>
+                <span class="card-tag">Main Project</span>
+                <h3 class="card-title">DATAPULSE — Log Analyzer</h3>
+                <p class="card-desc">
+                    Linux-based log analyzer built using Java to parse logs, detect errors, and analyze
+                    patterns across system logs. Identifies anomalies, generates error reports, and
+                    provides real-time monitoring with configurable alert thresholds.
+                </p>
+                <div class="card-meta">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Linux</span>
+                    <span class="tech-tag">Shell</span>
+                    <span class="tech-tag">Parsing</span>
+                </div>
+            </div>
+
+            <!-- HealEd Project -->
+            <div class="card" data-animate style="transition-delay: 0.3s; cursor: pointer;"
+                onclick="triggerHealedLoading()">
+                <div class="card-icon">🧠</div>
+                <span class="card-tag">AI Project</span>
+                <h3 class="card-title">HealEd — Mental Health Support System</h3>
+                <p class="card-desc">
+                    AI-based platform designed to support students facing anxiety and depression.
+                    Includes cognitive tests, chatbot assistance, and personalized insights to track
+                    mental wellness and provide data-driven recommendations.
+                </p>
+                <div class="card-meta">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">AI</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+            </div>
+
+            <!-- Tax Calculator Project -->
+            <div class="card" data-animate style="transition-delay: 0.45s; cursor: pointer;"
+                onclick="triggerTaxLoading()">
+                <div class="card-icon">💰</div>
+                <span class="card-tag">Java Project</span>
+                <h3 class="card-title">Tax Calculator System</h3>
+                <p class="card-desc">
+                    Console-based Java application that calculates tax based on income slabs,
+                    deductions, and allowances. Includes admin control for updating tax rules
+                    and supports JSON-based data export.
+                </p>
+                <div class="card-meta">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">JSON</span>
+                    <span class="tech-tag">Logic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-header">
+            <p class="section-label">Arsenal</p>
+            <h2 class="section-title">SKILLS</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card" data-animate>
+                <div class="skill-icon">♨️</div>
+                <div class="skill-name">Java (Backend)</div>
+            </div>
+            <div class="skill-card" data-animate style="transition-delay: 0.1s">
+                <div class="skill-icon">🐧</div>
+                <div class="skill-name">Linux</div>
+            </div>
+            <div class="skill-card" data-animate style="transition-delay: 0.2s">
+                <div class="skill-icon">🗄️</div>
+                <div class="skill-name">DBMS</div>
+            </div>
+            <div class="skill-card" data-animate style="transition-delay: 0.3s">
+                <div class="skill-icon">🐍</div>
+                <div class="skill-name">Python (Basics)</div>
+            </div>
+            <div class="skill-card" data-animate style="transition-delay: 0.4s">
+                <div class="skill-icon">🌐</div>
+                <div class="skill-name">HTML & CSS (Basics)</div>
+            </div>
+            <div class="skill-card" data-animate style="transition-delay: 0.5s">
+                <div class="skill-icon">🧠</div>
+                <div class="skill-name">Problem Solving</div>
+            </div>
+            <div class="skill-card" data-animate style="transition-delay: 0.6s">
+                <div class="skill-icon">🤖</div>
+                <div class="skill-name">AI Assisted Development</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- MILESTONES SECTION -->
+    <section id="milestones-section" style="text-align: center;">
+        <div class="section-header" data-animate>
+            <p class="section-label">Journey</p>
+            <h2 class="section-title">EXPERIENCES & ACHIEVEMENTS</h2>
+        </div>
+
+        <div class="milestones-grid">
+            <!-- Experiences Column -->
+            <div class="milestone-col" data-animate>
+                <h3 class="milestone-title">EXPERIENCES</h3>
+                <p class="milestone-desc">
+                    Check out my professional journey, including internships and roles where I've applied my skills in
+                    real-world environments.
+                </p>
+                <a href="javascript:void(0)" onclick="triggerExperiencesLoading()" class="btn-primary"
+                    style="display: block; text-align: center;">View Experiences</a>
+            </div>
+
+            <!-- Achievements Column -->
+            <div class="milestone-col" data-animate style="transition-delay: 0.2s;">
+                <h3 class="milestone-title">ACHIEVEMENTS</h3>
+                <p class="milestone-desc">
+                    A collection of my latest certifications, hackathon participations, and key learning milestones.
+                </p>
+                <a href="javascript:void(0)" onclick="triggerAchievementsLoading()" class="btn-primary"
+                    style="display: block; text-align: center;">View Achievements</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- TERMINAL -->
+    <section id="terminal-section">
+        <div class="section-header">
+            <p class="section-label">Live Demo</p>
+            <h2 class="section-title">TERMINAL</h2>
+        </div>
+        <div class="terminal-wrap" data-animate>
+            <div class="terminal-titlebar">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-titlebar-text">vishnu@linux: ~</span>
+            </div>
+            <div class="terminal" id="terminalBox"></div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-header">
+            <p class="section-label">Connect</p>
+            <h2 class="section-title">CONTACT</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info" data-animate>
+                <p class="contact-desc">
+                    Open to collaborations, backend roles, Linux consulting, and interesting problems.
+                    If you have a system that needs fixing — let's talk.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:vishnucg.2005@gmail.com" class="contact-link">
+                        <span class="contact-link-icon">✉</span>
+                        <div>
+                            <div class="contact-link-label">Email</div>
+                            <div style="font-size:0.75rem; color: var(--primary); margin-top:2px;">
+                                vishnucg.2005@gmail.com
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Vishnu-cg2005" target="_blank" class="contact-link">
+                        <span class="contact-link-icon">⌨</span>
+                        <div>
+                            <div class="contact-link-label">GitHub</div>
+                            <div style="font-size:0.75rem; color: var(--primary); margin-top:2px;">
+                                github.com/Vishnu-cg2005
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/cgvishnu" target="_blank" class="contact-link">
+                        <span class="contact-link-icon">🔗</span>
+                        <div>
+                            <div class="contact-link-label">LinkedIn</div>
+                            <div style="font-size:0.75rem; color: var(--primary); margin-top:2px;">
+                                linkedin.com/in/cgvishnu</div>
+                        </div>
+                    </a>
+                    <a href="https://linktr.ee/cgvishnu" target="_blank" class="contact-link">
+                        <span class="contact-link-icon">🔗</span>
+                        <div>
+                            <div class="contact-link-label">LinkTree</div>
+                            <div style="font-size:0.75rem; color: var(--primary); margin-top:2px;">
+                                linktree.com/in/cgvishnu</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <form name="contact" method="POST" data-netlify="true" action="/">
+
+              <input type="hidden" name="form-name" value="contact">
+
+              <p>
+                <label>Your Name:
+                  <input type="text" name="name" required>
+                </label>
+              </p>
+
+              <p>
+                <label>Your Email:
+                  <input type="email" name="email" required>
+                </label>
+              </p>
+
+              <p>
+                <label>Message:
+                  <textarea name="message" required></textarea>
+                </label>
+              </p>
+
+              <p>
+                <button type="submit">Send</button>
+              </p>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- GROW UP LOADING OVERLAY -->
+    <div id="growup-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">G</span>
+                <span class="g-letter">R</span>
+                <span class="g-letter">O</span>
+                <span class="g-letter">W</span>
+                <span class="g-letter space">&nbsp;</span>
+                <span class="g-letter">U</span>
+                <span class="g-letter">P</span>
+            </h1>
+            <p class="loading-subtext" id="loading-subtext">Analyzing Skills<span class="cursor-blink">_</span></p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATAPULSE LOADING OVERLAY -->
+    <div id="datapulse-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title dp-title">
+                <span class="g-letter">D</span>
+                <span class="g-letter">A</span>
+                <span class="g-letter">T</span>
+                <span class="g-letter">A</span>
+                <span class="g-letter">P</span>
+                <span class="g-letter">U</span>
+                <span class="g-letter">L</span>
+                <span class="g-letter">S</span>
+                <span class="g-letter">E</span>
+            </h1>
+            <p class="loading-subtext" id="dp-loading-subtext">Initializing Engine<span class="cursor-blink">_</span>
+            </p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEALED LOADING OVERLAY -->
+    <div id="healed-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">H</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">A</span>
+                <span class="g-letter">L</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">D</span>
+            </h1>
+            <p class="loading-subtext" id="healed-loading-subtext">Initializing AI<span class="cursor-blink">_</span>
+            </p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAX CALCULATOR LOADING OVERLAY -->
+    <div id="tax-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title" style="letter-spacing: 5px;">
+                <span class="g-letter">T</span>
+                <span class="g-letter">A</span>
+                <span class="g-letter">X</span>
+                <span class="g-letter space">&nbsp;</span>
+                <span class="g-letter">S</span>
+                <span class="g-letter">Y</span>
+                <span class="g-letter">S</span>
+                <span class="g-letter">T</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">M</span>
+            </h1>
+            <p class="loading-subtext" id="tax-loading-subtext">Initializing JVM<span class="cursor-blink">_</span></p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCES LOADING OVERLAY -->
+    <div id="experiences-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">E</span>
+                <span class="g-letter">X</span>
+                <span class="g-letter">P</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">R</span>
+                <span class="g-letter">I</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">N</span>
+                <span class="g-letter">C</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">S</span>
+            </h1>
+            <p class="loading-subtext" id="experiences-loading-subtext">Fetching Data<span class="cursor-blink">_</span>
+            </p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENTS LOADING OVERLAY -->
+    <div id="achievements-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">A</span>
+                <span class="g-letter">C</span>
+                <span class="g-letter">H</span>
+                <span class="g-letter">I</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">V</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">M</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">N</span>
+                <span class="g-letter">T</span>
+                <span class="g-letter">S</span>
+            </h1>
+            <p class="loading-subtext" id="achievements-loading-subtext">Fetching Data<span
+                    class="cursor-blink">_</span></p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESUME LOADING OVERLAY -->
+    <div id="resume-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">R</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">S</span>
+                <span class="g-letter">U</span>
+                <span class="g-letter">M</span>
+                <span class="g-letter">E</span>
+            </h1>
+            <p class="loading-subtext" id="resume-loading-subtext">Optimizing CV<span class="cursor-blink">_</span></p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Vishnu.dev</div>
+        <div class="footer-text">© 2025 Vishnu. All rights reserved.</div>
+        <div class="footer-mantra"><span>Fix.</span> <span>Grow.</span> <span>Analyze.</span></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="growup-loading.js"></script>
+    <script src="datapulse-loading.js"></script>
+    <script src="healed-loading.js"></script>
+    <script src="tax-loading.js"></script>
+    <script src="experiences-loading.js"></script>
+    <script src="achievements-loading.js"></script>
+    <script src="resume-loading.js"></script>
+</body>
+
+</html>

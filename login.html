@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu.dev — System Access</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(15, 15, 15, 0.95);
+            border: 1px solid var(--primary);
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 255, 153, 0.1);
+        }
+        .login-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: scanLine 2s linear infinite;
+        }
+        @keyframes scanLine {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(400px); opacity: 0; }
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-title {
+            font-family: var(--font-display);
+            color: var(--primary);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            text-shadow: var(--glow-sm);
+        }
+        .login-subtitle {
+            font-size: 0.7rem;
+            color: var(--dim);
+            letter-spacing: 2px;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+        .login-form .form-group {
+            margin-bottom: 24px;
+        }
+        .login-form input {
+            background: rgba(0, 255, 153, 0.05);
+            border: 1px solid rgba(0, 255, 153, 0.2);
+            color: var(--text);
+            padding: 14px;
+            width: 100%;
+            font-family: var(--font-mono);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .login-form input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: var(--bg);
+            border: none;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--glow);
+        }
+        .login-btn:hover {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .back-home:hover {
+            color: var(--primary);
+        }
+        .terminal-bg-text {
+            position: absolute;
+            font-size: 10rem;
+            color: rgba(0, 255, 153, 0.02);
+            font-family: var(--font-display);
+            z-index: -1;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <div class="login-container">
+        <div class="terminal-bg-text" style="top: 10%; left: 5%;">ACCESS</div>
+        <div class="terminal-bg-text" style="bottom: 10%; right: 5%;">DENIED</div>
+
+        <div class="login-box">
+            <div class="login-header">
+                <h1 class="login-title">SYSTEM LOGIN</h1>
+                <p class="login-subtitle">Authorization Required</p>
+            </div>
+            <form class="login-form" onsubmit="event.preventDefault(); alert('Access Granted. Redirecting...'); window.location.href='index.html';">
+                <div class="form-group">
+                    <input type="text" placeholder="USERNAME" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="PASSWORD" required>
+                </div>
+                <button type="submit" class="login-btn">INITIALIZE ACCESS</button>
+            </form>
+            <a href="index.html" class="back-home">_ RETURN_TO_DASHBOARD</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

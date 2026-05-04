@@ -1,0 +1,25 @@
+JAVA BASIC SYNTAX NOTES
+
+FOR LOOP: for(int i = 0; i < 5; i++) { System.out.println(i); }
+
+WHILE LOOP: int i = 0; while(i < 5) { System.out.println(i); i++; }
+
+IF: if(a > b) { System.out.println(“A is greater”); }
+
+ELSE: if(a > b) { System.out.println(“A”); } else {
+System.out.println(“B”); }
+
+ELSE IF: if(a > b) { System.out.println(“A”); } else if(a == b) {
+System.out.println(“Equal”); } else { System.out.println(“B”); }
+
+TRY-CATCH-FINALLY: try { int x = 10 / 0; } catch(Exception e) {
+System.out.println(“Error”); } finally { System.out.println(“Always
+runs”); }
+
+SWITCH: int num = 2; switch(num) { case 1: System.out.println(“One”);
+break; case 2: System.out.println(“Two”); break; default:
+System.out.println(“Other”); }
+
+BREAK: for(int i = 0; i < 5; i++) { if(i == 3) break; }
+
+CONTINUE: for(int i = 0; i < 5; i++) { if(i == 3) continue; }

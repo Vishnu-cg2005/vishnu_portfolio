@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu.dev — Achievements</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Vishnu<span>.dev</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="javascript:void(0)" onclick="triggerExperiencesLoading()">Experiences</a>
+            <a href="javascript:void(0)" onclick="triggerAchievementsLoading()"
+                style="color: var(--primary); border-color: var(--primary); text-shadow: var(--glow-sm); background: rgba(0, 255, 153, 0.05);">Achievements</a>
+            <a href="javascript:void(0)" onclick="triggerResumeLoading()">Resume</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ACHIEVEMENTS HEADER -->
+    <section id="achievements-header" style="padding-top: 150px; padding-bottom: 50px;">
+        <div class="section-header visible" style="margin-bottom: 20px;">
+            <p class="section-label">Certifications & Milestones</p>
+            <h2 class="section-title">ACHIEVEMENTS</h2>
+        </div>
+        <p class="objective visible" style="max-width: 600px;">
+            My latest certifications, hackathon participations, and key learning milestones representing continuous drive to build and grow.
+        </p>
+    </section>
+
+    <!-- ACHIEVEMENTS GRID -->
+    <section id="achievements-list" style="padding-top: 0;">
+        <div class="exp-list" id="achievements-grid">
+            <!-- Populated via script.js -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Vishnu.dev</div>
+        <div class="footer-text">© 2025 Vishnu. All rights reserved.</div>
+        <div class="footer-mantra"><span>Fix.</span> <span>Grow.</span> <span>Analyze.</span></div>
+    </footer>
+
+    <!-- EXPERIENCES LOADING OVERLAY -->
+    <div id="experiences-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">E</span>
+                <span class="g-letter">X</span>
+                <span class="g-letter">P</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">R</span>
+                <span class="g-letter">I</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">N</span>
+                <span class="g-letter">C</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">S</span>
+            </h1>
+            <p class="loading-subtext" id="experiences-loading-subtext">Fetching Data<span class="cursor-blink">_</span>
+            </p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENTS LOADING OVERLAY -->
+    <div id="achievements-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">A</span>
+                <span class="g-letter">C</span>
+                <span class="g-letter">H</span>
+                <span class="g-letter">I</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">V</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">M</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">N</span>
+                <span class="g-letter">T</span>
+                <span class="g-letter">S</span>
+            </h1>
+            <p class="loading-subtext" id="achievements-loading-subtext">Fetching Data<span
+                    class="cursor-blink">_</span></p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESUME LOADING OVERLAY -->
+    <div id="resume-loading-overlay">
+        <div class="loading-content">
+            <h1 class="loading-title">
+                <span class="g-letter">R</span>
+                <span class="g-letter">E</span>
+                <span class="g-letter">S</span>
+                <span class="g-letter">U</span>
+                <span class="g-letter">M</span>
+                <span class="g-letter">E</span>
+            </h1>
+            <p class="loading-subtext" id="resume-loading-subtext">Optimizing CV<span class="cursor-blink">_</span></p>
+            <div class="loading-progress-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="experiences-loading.js"></script>
+    <script src="achievements-loading.js"></script>
+    <script src="resume-loading.js"></script>
+</body>
+
+</html>

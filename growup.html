@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Up - Career Skill Gap Analyzer | Vishnu.dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --bg-card: #151515;
+            --primary: #00ff99;
+            --secondary: #00cc77;
+            --text: #e6ffe6;
+            --text-dim: #a0cca0;
+            --glow: 0 0 10px #00ff99, 0 0 20px #00ff9944;
+            --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+            --font-display: 'Orbitron', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-mono); line-height: 1.6; padding-bottom: 60px; }
+
+        /* Navbar Back Button */
+        .nav-back {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 8%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+            z-index: 100;
+        }
+        .nav-back a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-back a:hover { text-shadow: var(--glow); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 120px 20px 0; }
+
+        /* HERO */
+        .hero { text-align: center; margin-bottom: 80px; }
+        .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); color: var(--primary); text-shadow: var(--glow); margin-bottom: 10px; }
+        .tagline { font-size: 1.2rem; color: var(--secondary); margin-bottom: 20px; }
+        .intro { font-size: 1rem; color: var(--text-dim); max-width: 700px; margin: 0 auto; }
+
+        /* SECTIONS */
+        .section { margin-bottom: 60px; }
+        .section-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid rgba(0, 255, 153, 0.3); padding-bottom: 10px; display: inline-block; }
+
+        /* CARDS GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--bg-card); border: 1px solid rgba(0, 255, 153, 0.2); border-left: 3px solid var(--primary); padding: 25px; border-radius: 4px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 153, 0.1); border-color: var(--primary); }
+        .card h3 { font-family: var(--font-display); color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; }
+        
+        ul { list-style: none; }
+        ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-dim); }
+        ul li::before { content: '>'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* MENTORSHIP HIGHLIGHT */
+        .mentor-card { border-color: var(--primary); box-shadow: inset 0 0 20px rgba(0, 255, 153, 0.05); }
+        .mentor-card h3::after { content: ' 🔥'; }
+
+        /* PROCESS FLOW */
+        .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .step { background: rgba(0, 255, 153, 0.05); border: 1px dashed var(--secondary); padding: 15px; text-align: center; border-radius: 4px; }
+        .step-num { font-size: 1.5rem; color: var(--primary); font-weight: bold; margin-bottom: 5px; font-family: var(--font-display); }
+
+        /* TECH STACK */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tag { background: rgba(0, 255, 153, 0.1); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; color: var(--primary); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="nav-back">
+        <a href="index.html#projects">← Back to Portfolio</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 1. HERO SECTION -->
+        <section class="hero">
+            <h1>Grow Up</h1>
+            <p class="tagline">AI-powered platform to identify skill gaps, guide learning, and connect with mentors.</p>
+            <p class="intro">A smart system that helps users understand their skills and improve their career path.</p>
+        </section>
+
+        <!-- 2. PROBLEM & 3. SOLUTION -->
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>The Problem</h3>
+                    <ul>
+                        <li>Skills become outdated quickly in the fast-paced tech industry</li>
+                        <li>Students lack awareness of current real-world job requirements</li>
+                        <li>Hidden skill gaps severely affect job opportunities</li>
+                        <li>No proper guidance available for structured career growth</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>The Solution</h3>
+                    <ul>
+                        <li>Analyzes user skills and career goals intelligently</li>
+                        <li>Compares profiles against real-world industry requirements</li>
+                        <li>Identifies missing and partial skills automatically</li>
+                        <li>Suggests personalized, actionable learning paths</li>
+                        <li>Provides direct guidance to significantly improve employability</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FEATURES & 5. MENTORSHIP -->
+        <section class="section">
+            <h2 class="section-title">Core Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>System Capabilities</h3>
+                    <ul>
+                        <li>Skill profiling based on user input and preferences</li>
+                        <li>Role-based skill gap analysis mapped to industry standards</li>
+                        <li>Accurate missing and partial skill detection</li>
+                        <li>Skill prioritization (guiding users from basic to advanced)</li>
+                        <li>Personalized learning roadmaps</li>
+                        <li>Course, certification, and project recommendations</li>
+                        <li>Evaluation covering both technical and soft skills</li>
+                        <li>AI-based resume parsing and deep context analysis</li>
+                    </ul>
+                </div>
+                <div class="card mentor-card">
+                    <h3>Mentorship Feature</h3>
+                    <ul>
+                        <li>Connect users with experienced, industry-verified mentors</li>
+                        <li>Get expert guidance on critical career decisions</li>
+                        <li>Personalized support designed to improve weak areas</li>
+                        <li>Mentor-based, curated learning recommendations</li>
+                        <li>Keeps users motivated and on the right career trajectory</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. HOW IT WORKS -->
+        <section class="section">
+            <h2 class="section-title">How It Works</h2>
+            <div class="flow-grid">
+                <div class="step"><div class="step-num">01</div><p>Signup & Login</p></div>
+                <div class="step"><div class="step-num">02</div><p>Upload Resume</p></div>
+                <div class="step"><div class="step-num">03</div><p>Select Target Role</p></div>
+                <div class="step"><div class="step-num">04</div><p>AI Extracts Skills</p></div>
+                <div class="step"><div class="step-num">05</div><p>Compare to Industry</p></div>
+                <div class="step"><div class="step-num">06</div><p>Identify Gaps</p></div>
+                <div class="step"><div class="step-num">07</div><p>Generate Roadmap</p></div>
+                <div class="step"><div class="step-num">08</div><p>View Dashboard</p></div>
+            </div>
+        </section>
+
+        <!-- 7. OUTPUT DASHBOARD & 8. TECH STACK -->
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>Output Dashboard</h3>
+                    <ul>
+                        <li><strong>Current Profile:</strong> Extracted existing skills</li>
+                        <li><strong>Action Required:</strong> Missing & critical skills</li>
+                        <li><strong>Resources:</strong> Recommended courses & projects</li>
+                        <li><strong>Tracking:</strong> Progress & milestone tracking</li>
+                        <li><strong>Validation:</strong> Assessment results & metrics</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Tech Stack</h3>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Frontend:</strong></div>
+                    <div class="tech-tags" style="margin-bottom: 15px;">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript / React</span>
+                    </div>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Backend & Database:</strong></div>
+                    <div class="tech-tags" style="margin-bottom: 15px;">
+                        <span class="tech-tag">Java (Spring Boot)</span>
+                        <span class="tech-tag">MySQL / PostgreSQL</span>
+                    </div>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>AI Engine:</strong></div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">NLP Parsing</span>
+                        <span class="tech-tag">OpenAI / Gemini API</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT TEAM -->
+        <section class="section">
+            <h2 class="section-title">Project Team</h2>
+            <div class="card" style="border-left: 3px solid var(--secondary);">
+                <p style="color: var(--text-dim); margin-bottom: 15px;">This project was a collaborative team effort by:</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Vishal Kowsik K</span>
+                    <span class="tech-tag">Vishnu Prrasath S S</span>
+                    <span class="tech-tag">Vishnu C G</span>
+                    <span class="tech-tag">Yogapriya R</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. ROLE & 10. FUTURE -->
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>My Role</h3>
+                    <ul>
+                        <li><strong>Backend Architecture:</strong> Developed scalable server infrastructure</li>
+                        <li><strong>API Design:</strong> Created robust RESTful endpoints for the frontend</li>
+                        <li><strong>Business Logic:</strong> Implemented the core gap analysis algorithms</li>
+                        <li><strong>System Integration:</strong> Connected the AI APIs seamlessly with user data flows</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Future Improvements</h3>
+                    <ul>
+                        <li>AI-based long-term career trajectory prediction</li>
+                        <li>Real-time job market API integration for live skill demand</li>
+                        <li>Advanced mentor-mentee algorithmic matching system</li>
+                        <li>Comprehensive analytics dashboard for educational institutions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

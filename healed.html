@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealEd - Mental Health Support System | Vishnu.dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --bg-card: #151515;
+            --primary: #00ff99;
+            --secondary: #00cc77;
+            --text: #e6ffe6;
+            --text-dim: #a0cca0;
+            --glow: 0 0 10px #00ff99, 0 0 20px #00ff9944;
+            --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+            --font-display: 'Orbitron', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-mono); line-height: 1.6; padding-bottom: 60px; }
+
+        /* Navbar Back Button */
+        .nav-back {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 8%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+            z-index: 100;
+        }
+        .nav-back a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-back a:hover { text-shadow: var(--glow); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 120px 20px 0; }
+
+        /* HERO */
+        .hero { text-align: center; margin-bottom: 80px; }
+        .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); color: var(--primary); text-shadow: var(--glow); margin-bottom: 10px; }
+        .tagline { font-size: 1.2rem; color: var(--secondary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .intro { font-size: 1rem; color: var(--text-dim); max-width: 700px; margin: 0 auto; }
+
+        /* SECTIONS */
+        .section { margin-bottom: 60px; }
+        .section-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid rgba(0, 255, 153, 0.3); padding-bottom: 10px; display: inline-block; text-shadow: 0 0 5px var(--primary); }
+        .section-title::before { content: '>_ '; }
+
+        /* CARDS GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--bg-card); border: 1px solid rgba(0, 255, 153, 0.2); border-left: 3px solid var(--primary); padding: 25px; border-radius: 4px; transition: 0.3s; position: relative; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--primary); box-shadow: var(--glow); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 153, 0.1); border-color: var(--primary); }
+        .card h3 { font-family: var(--font-display); color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; }
+        
+        ul { list-style: none; }
+        ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-dim); }
+        ul li::before { content: '$'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* PROCESS FLOW */
+        .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .step { background: rgba(0, 255, 153, 0.05); border: 1px dashed var(--secondary); padding: 15px; text-align: center; border-radius: 4px; transition: 0.3s;}
+        .step:hover { background: rgba(0, 255, 153, 0.1); border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-3px);}
+        .step-num { font-size: 1.5rem; color: var(--primary); font-weight: bold; margin-bottom: 5px; font-family: var(--font-display); }
+
+        /* TECH STACK */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tag { background: rgba(0, 255, 153, 0.1); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; color: var(--primary); font-size: 0.9rem; }
+
+        /* ASSESSMENT CARDS */
+        .assessment-card { 
+            border-color: var(--secondary); 
+            display: flex; 
+            flex-direction: column; 
+            height: 100%;
+        }
+        .assessment-card h3 { border-bottom: 1px dashed rgba(0, 255, 153, 0.3); padding-bottom: 10px; }
+        .assessment-label { color: var(--primary); font-weight: bold; margin-top: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+        .assessment-text { color: var(--text-dim); margin-top: 5px; font-size: 0.95rem; }
+        .demo-box { 
+            background: #000; 
+            border: 1px solid rgba(0, 255, 153, 0.3); 
+            padding: 15px; 
+            margin-top: 15px; 
+            border-radius: 4px; 
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .demo-title { font-size: 0.8rem; color: #a0cca0; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;}
+        .demo-action { margin-top: 15px; padding: 8px 15px; background: rgba(0, 255, 153, 0.1); border: 1px solid var(--primary); color: var(--primary); border-radius: 4px; cursor: pointer; transition: 0.3s; font-family: var(--font-mono); text-transform: uppercase;}
+        .demo-action:hover { background: var(--primary); color: #000; box-shadow: var(--glow); }
+
+        /* SPECIFIC DEMO STYLES */
+        .stroop-word { font-size: 1.5rem; font-weight: bold; font-family: var(--font-display); letter-spacing: 2px;}
+        .nback-sequence { font-size: 1.2rem; letter-spacing: 5px; color: var(--text); }
+        .nback-highlight { color: var(--primary); font-weight: bold; text-shadow: var(--glow); }
+        .dtmt-pattern { font-size: 1.2rem; color: var(--text); letter-spacing: 3px; }
+
+        /* DASHBOARD PREVIEW */
+        .dashboard-preview { background: #000; border: 1px solid rgba(0, 255, 153, 0.2); border-radius: 6px; padding: 20px; position: relative; overflow: hidden; box-shadow: var(--glow); margin-bottom: 30px;}
+        .dashboard-preview::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent); }
+        .dash-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 255, 153, 0.1); padding-bottom: 15px; margin-bottom: 20px; }
+        .dash-title { color: var(--primary); font-family: var(--font-display); font-size: 1.2rem; }
+        .dash-user { display: flex; align-items: center; gap: 10px; color: var(--text-dim); }
+        .dash-avatar { width: 30px; height: 30px; border-radius: 50%; background: rgba(0, 255, 153, 0.1); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--primary); }
+        .dash-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+        @media (max-width: 768px) { .dash-grid { grid-template-columns: 1fr; } }
+        .dash-card { background: rgba(15, 15, 15, 0.5); border: 1px solid rgba(0, 255, 153, 0.1); padding: 15px; border-radius: 4px; }
+        .dash-card-title { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 10px; text-transform: uppercase; }
+        .dash-stat { font-size: 2rem; font-family: var(--font-display); color: var(--primary); }
+        .dash-chart-bar { height: 10px; background: rgba(0, 255, 153, 0.1); border-radius: 5px; margin-top: 15px; overflow: hidden; position: relative; }
+        .dash-chart-fill { height: 100%; background: var(--primary); width: 75%; box-shadow: var(--glow); }
+        .dash-insight { margin-top: 10px; font-size: 0.85rem; color: var(--text-dim); border-left: 2px solid var(--secondary); padding-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="nav-back">
+        <a href="index.html#projects">← Back to Portfolio</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 1. HERO SECTION -->
+        <section class="hero">
+            <h1>HEALED</h1>
+            <p class="tagline">Mental Health Support System</p>
+            <p class="intro">A digital platform that helps students manage anxiety and depression using AI and cognitive assessments. Providing accessible support without stigma.</p>
+        </section>
+
+        <!-- 2. PROBLEM & 3. SOLUTION -->
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>[ ERR_SYS ] The Problem</h3>
+                    <ul>
+                        <li>Students increasingly face anxiety and depression</li>
+                        <li>Academic pressure and social stress are constantly rising</li>
+                        <li>Professional mental health support is often not easily accessible</li>
+                        <li>Many students hesitate to seek help due to stigma</li>
+                    </ul>
+                    <p style="color: var(--secondary); margin-top: 15px; font-size: 0.9rem; border-top: 1px dashed rgba(0,255,153,0.2); padding-top: 10px;">
+                        <em>>_ Insight: Anxiety affects a vast majority of students, with depression rates steadily rising across campuses globally.</em>
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>[ SYS_OK ] The Solution</h3>
+                    <ul>
+                        <li>Provides an AI-based mental health support and companion system</li>
+                        <li>Uses scientifically backed cognitive tests to analyze mental conditions</li>
+                        <li>Offers highly personalized insights and actionable guidance</li>
+                        <li>Creates a safe, private, and accessible support system available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CORE FEATURES -->
+        <section class="section">
+            <h2 class="section-title">Core Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <ul>
+                        <li><strong>AI Chatbot:</strong> Intelligent mental health conversational agent</li>
+                        <li><strong>Cognitive Tests:</strong> Built-in assessments (Stroop, N-Back, DTMT)</li>
+                        <li><strong>Cognitive Analysis:</strong> Deep memory and attention evaluation</li>
+                        <li><strong>Personalized Insights:</strong> Custom mental health reports</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li><strong>Tracking Dashboard:</strong> Visual progress tracking over time</li>
+                        <li><strong>Pattern Detection:</strong> Identifies stress and mood fluctuations</li>
+                        <li><strong>Smart Recommendations:</strong> Data-driven wellness suggestions</li>
+                        <li><strong>Wellness Interface:</strong> Calm, user-friendly, and safe UI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ASSESSMENT SYSTEM -->
+        <section class="section">
+            <h2 class="section-title">Assessment System – Cognitive Analysis</h2>
+            <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem; max-width: 800px;">
+                This system evaluates mental health using scientifically designed cognitive tests. 
+                Each test measures specific brain functions like memory, attention, and thinking ability.
+            </p>
+            
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <!-- Test 1: Stroop -->
+                <div class="card assessment-card">
+                    <h3>🧠 Stroop Test</h3>
+                    <div class="assessment-label">Definition</div>
+                    <div class="assessment-text">A psychological test used to measure attention control and cognitive interference.</div>
+                    
+                    <div class="assessment-label">Purpose</div>
+                    <div class="assessment-text">To check how well a user can focus when there is conflicting information.</div>
+                    
+                    <div class="demo-box">
+                        <div class="demo-title">Simulation Demo</div>
+                        <div class="assessment-text" style="font-size: 0.8rem; margin-bottom: 10px;">Select the COLOR, not the word.</div>
+                        <div class="stroop-word" style="color: #4da6ff;">RED</div>
+                        <div class="stroop-word" style="color: #ff4d4d; margin-top: 5px;">GREEN</div>
+                        <button class="demo-action">Play Test</button>
+                    </div>
+                </div>
+
+                <!-- Test 2: N-Back -->
+                <div class="card assessment-card">
+                    <h3>🔄 N-Back Test</h3>
+                    <div class="assessment-label">Definition</div>
+                    <div class="assessment-text">A memory test that evaluates working memory and continuous attention.</div>
+                    
+                    <div class="assessment-label">Purpose</div>
+                    <div class="assessment-text">To measure how well a user can remember, update, and process information.</div>
+                    
+                    <div class="demo-box">
+                        <div class="demo-title">Simulation Demo</div>
+                        <div class="assessment-text" style="font-size: 0.8rem; margin-bottom: 10px;">Identify when current letter matches the previous one.</div>
+                        <div class="nback-sequence">A → B → <span class="nback-highlight">A</span> → C → <span class="nback-highlight">A</span></div>
+                        <button class="demo-action">Play Test</button>
+                    </div>
+                </div>
+
+                <!-- Test 3: DTMT -->
+                <div class="card assessment-card">
+                    <h3>⚡ DTMT</h3>
+                    <div class="assessment-label">Definition</div>
+                    <div class="assessment-text">Digital Thinking & Memory Test to evaluate thinking ability and memory recall.</div>
+                    
+                    <div class="assessment-label">Purpose</div>
+                    <div class="assessment-text">To analyze how quickly and accurately a user processes sequential information.</div>
+                    
+                    <div class="demo-box">
+                        <div class="demo-title">Simulation Demo</div>
+                        <div class="assessment-text" style="font-size: 0.8rem; margin-bottom: 10px;">Identify the pattern and find the next number.</div>
+                        <div class="dtmt-pattern">1 → 3 → 5 → <span style="color: var(--primary);">?</span></div>
+                        <button class="demo-action">Play Test</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Analysis Output -->
+            <div class="card" style="margin-top: 20px; border-color: var(--secondary);">
+                <div class="grid">
+                    <div>
+                        <h3 style="color: var(--secondary);">Result Analysis</h3>
+                        <ul>
+                            <li>System securely collects test results</li>
+                            <li>Measures processing speed, accuracy, and consistency</li>
+                            <li>Detects early signs of stress or cognitive difficulty</li>
+                            <li>Converts complex neuro-data into understandable insights</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--secondary);">User Output</h3>
+                        <ul>
+                            <li>Clear score breakdown for each cognitive test</li>
+                            <li>Visual performance graph over time</li>
+                            <li>Identified strength & weakness areas</li>
+                            <li>Actionable suggestions for cognitive improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. USER DASHBOARD & 7. HOW IT WORKS -->
+        <section class="section">
+            <h2 class="section-title">Dashboard & Workflow</h2>
+            
+            <div class="dashboard-preview">
+                <div class="dash-header">
+                    <div class="dash-title">Wellness Dashboard</div>
+                    <div class="dash-user">
+                        <span>Student Profile</span>
+                        <div class="dash-avatar">U</div>
+                    </div>
+                </div>
+                <div class="dash-grid">
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="dash-card">
+                            <div class="dash-card-title">Current Mood</div>
+                            <div class="dash-stat" style="color: #4da6ff; text-shadow: 0 0 10px #4da6ff;">Calm</div>
+                        </div>
+                        <div class="dash-card">
+                            <div class="dash-card-title">Cognitive Score</div>
+                            <div class="dash-stat">85/100</div>
+                            <div class="dash-insight">Improved focus since last week's N-Back test.</div>
+                        </div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="dash-card-title">Stress Pattern (Weekly)</div>
+                        <div style="height: 120px; display: flex; align-items: flex-end; gap: 10px; margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,255,153,0.2);">
+                            <div style="width: 15%; background: var(--secondary); height: 40%; border-radius: 3px 3px 0 0;"></div>
+                            <div style="width: 15%; background: var(--secondary); height: 60%; border-radius: 3px 3px 0 0;"></div>
+                            <div style="width: 15%; background: #ffbd2e; height: 80%; border-radius: 3px 3px 0 0;"></div>
+                            <div style="width: 15%; background: var(--primary); height: 30%; border-radius: 3px 3px 0 0;"></div>
+                            <div style="width: 15%; background: var(--primary); height: 20%; border-radius: 3px 3px 0 0;"></div>
+                        </div>
+                        <div class="dash-insight" style="margin-top: 15px;">AI detects lower stress levels after interacting with the wellness chatbot.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-grid">
+                <div class="step"><div class="step-num">01</div><p>Secure Signup</p></div>
+                <div class="step"><div class="step-num">02</div><p>Take Cognitive Tests</p></div>
+                <div class="step"><div class="step-num">03</div><p>Collect Results</p></div>
+                <div class="step"><div class="step-num">04</div><p>AI Analysis</p></div>
+                <div class="step"><div class="step-num">05</div><p>Detect Patterns</p></div>
+                <div class="step"><div class="step-num">06</div><p>Get Recommendations</p></div>
+                <div class="step"><div class="step-num">07</div><p>View Dashboard</p></div>
+            </div>
+        </section>
+
+        <!-- PROJECT TEAM -->
+        <section class="section">
+            <h2 class="section-title">Project Team</h2>
+            <div class="card" style="border-left: 3px solid var(--secondary);">
+                <p style="color: var(--text-dim); margin-bottom: 15px;">This project was a collaborative team effort by:</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Vishal Kowsik K</span>
+                    <span class="tech-tag">Vishnu Prrasath S S</span>
+                    <span class="tech-tag">Vishnu C G</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. TECH STACK, 9. YOUR ROLE, 10. IMPACT -->
+        <section class="section">
+            <div class="grid">
+                <!-- Tech Stack -->
+                <div class="card">
+                    <h3>Tech Stack & Environment</h3>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Frontend:</strong> React, HTML5, CSS3</div>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Backend:</strong> Python</div>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Database & AI:</strong> MongoDB, NLP</div>
+                    <div style="margin-bottom: 10px; color: var(--text-dim);"><strong>Core Concepts:</strong></div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Data Handling</span>
+                        <span class="tech-tag">AI Chatbot</span>
+                        <span class="tech-tag">Cognitive Testing</span>
+                    </div>
+                </div>
+                
+                <!-- My Role -->
+                <div class="card">
+                    <h3>My Role</h3>
+                    <ul>
+                        <li><strong>Backend Implementation:</strong> Developed core logic in Python</li>
+                        <li><strong>Data Handling:</strong> Securely managed test results in MongoDB</li>
+                        <li><strong>Data Analysis:</strong> Wrote algorithms to parse test scores into insights</li>
+                        <li><strong>Feature Development:</strong> Built the cognitive assessment integration</li>
+                        <li><strong>System Design:</strong> Contributed to the overall architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. REAL-WORLD IMPACT & 11. FUTURE -->
+        <section class="section">
+            <div class="grid">
+                <div class="card">
+                    <h3>Real-World Impact</h3>
+                    <ul>
+                        <li><strong>Early Detection:</strong> Identifies mental health issues before they escalate</li>
+                        <li><strong>Accessibility:</strong> Support without the barrier of stigma or high costs</li>
+                        <li><strong>Self-Understanding:</strong> Helps students understand their own cognitive state better</li>
+                        <li><strong>Proactive Care:</strong> Encourages taking active steps toward mental wellness</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Future Improvements</h3>
+                    <ul>
+                        <li>Advanced AI emotion and sentiment detection from text/voice</li>
+                        <li>Direct integration with professional mentors and counselors</li>
+                        <li>Anonymous peer support system and community forums</li>
+                        <li>Gamification elements for increased test engagement</li>
+                        <li>Official university portal and curriculum integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
